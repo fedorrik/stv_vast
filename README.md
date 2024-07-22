@@ -2,10 +2,10 @@
 
 HOR Structural Variant (StV) prediction using HOR-monomer annotation
 
-This is experemental version which makes StV annotation for all the HORs ([original version](https://github.com/fedorrik/stv) uses only live HORs). It requires censat annotation (with coordinates of each HOR). Also this version insertes monomers of different HOR or SF monomer inside the StV name of a given HOR.
+This is experemental version which makes StV annotation for all the HORs ([original version](https://github.com/fedorrik/stv) uses only live HORs). It requires censat annotation (with coordinates of each HOR). Also this version insertes monomers of different HOR or SF monomer (if HOR+SF annotation is used as input) inside the StV name of a given HOR.
 
-Usage: ./stv.sh monomeric_HOR_track.bed censat_anntotaion.bed
-  
+Usage: `./stv.sh <monomeric_HOR+SF_track>.bed <censat_anntotaion>.bed`
+
 Config: insert path to dir with program into stv.sh
 ___
 
