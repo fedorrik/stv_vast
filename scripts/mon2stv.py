@@ -13,9 +13,16 @@ input_hor_name = argv[2]
 def get_max_mon(live_mons_bed):
     numbers = []
     for mon in live_mons_bed:
+        # skip SF mons
+        if '.' not in mon[3]:
+            continue
         n = mon[3].split('.')[1]
         # problematic S2C8H1L.6/7s, so skip it 
         if 's' in n:
+            numbers.append(7)
+            continue
+        # problematic S2C18H2-E.x/2 and S2C18H2-E.2/x, so skip it 
+        if 'x' in n:
             numbers.append(7)
             continue
         # split hybrids on separate numbers
@@ -219,6 +226,11 @@ for contig in contigs:
     strand_prev = live_mons[0][5]
     for line in live_mons:
         #print(line)
+        # skip SF mon
+        if '.' not in line[3]:
+            mons_numbers.append(line[3])
+            end = line[2]
+            continue
         name, n = line[3].split('.')
         # alien mon goes in list with it's name and number
         if name != input_hor_name:
